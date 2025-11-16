@@ -103,6 +103,11 @@
 | Auto-ARIMA | 3,315,958 | 2,551,951 | 420.03 | ⚠️ Needs tuning |
 | LSTM | 5,195,737 | 3,790,657 | 497.25 | ⚠️ Needs tuning |
 
+### 📊 Forecasting Model Comparison
+<p align="center">
+  <img src="image.png" width="800">
+</p>
+
 **Key Achievements:**
 - ✅ **XGBoost achieved target MAPE of 10.08%** - meeting business requirements
 - ✅ Successfully implemented Bayesian hyperparameter optimization
