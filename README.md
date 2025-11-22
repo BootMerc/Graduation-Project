@@ -99,12 +99,6 @@
 
 ### 📊 Forecasting Model Comparison
 <p align="center">
-  <img src="images/forecast_comparison.png" width="800">
-</p>
-
-
-### 📊 Forecasting Model Comparison
-<p align="center">
   <img src="image.png" width="800">
 </p>
 
