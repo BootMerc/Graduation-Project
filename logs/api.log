@@ -1,0 +1,36 @@
+2025-11-22 01:35:22,554 - src.api.main - INFO - ✅ Model and scaler loaded successfully
+2025-11-22 01:35:22,555 - src.api.main - INFO - 📊 Expected features: 22
+2025-11-22 01:35:22,555 - src.api.main - INFO - ⚠️  NOTE: Using 17 features from scaler + 5 unscaled features
+2025-11-22 01:35:22,602 - src.api.main - INFO - ✅ Model and scaler loaded successfully
+2025-11-22 01:35:22,603 - src.api.main - INFO - 📊 Expected features: 22
+2025-11-22 01:35:22,603 - src.api.main - INFO - ⚠️  NOTE: Using 17 features from scaler + 5 unscaled features
+2025-11-22 01:35:25,194 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:35:55,435 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:36:25,602 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:36:55,777 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:37:25,947 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:37:56,119 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:38:26,277 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:38:56,446 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:39:26,633 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:39:56,809 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:40:26,978 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:40:57,140 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:41:27,295 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:41:57,443 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:42:27,632 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:42:57,795 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:43:28,108 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:43:58,344 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:44:28,527 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:44:58,940 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:45:29,166 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:45:59,380 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:46:29,559 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:46:59,755 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:47:29,948 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:48:00,137 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:48:30,343 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:49:00,510 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:49:30,692 - src.api.main - INFO - 📡 Health check requested
+2025-11-22 01:50:00,861 - src.api.main - INFO - 📡 Health check requested
