@@ -14,7 +14,7 @@
 
 | Name | Role | Responsibilities | Contact |
 |------|------|-----------------|---------|
-| **[Ziad Mohamed shaker]** | Team Lead / Data Scientist | Project coordination, XGBoost/RF model development,EDA, feature engineering, visualization, FASTAPI engineering,MLflow setup,System Monitoring and fixes|
+| **[Ziad Mohamed shaker]** | Team Lead / Data Scientist | Project coordination, XGBoost/RF model development,EDA, feature engineering, visualization, FASTAPI engineering,MLflow setup,System Monitoring and fixes|[ziad.email@gmail.com](mailto:ziad.email@gmail.com) <br> 🔗 [LinkedIn](https://www.linkedin.com/in/ziad-mohamed-shaker)|
 | **[Ahmed Behdal]** | N |------------------|
 | **[mahmoud ismail]** | N | ------------------ |
 | **[Anas Abdul Monem reyad]** | N | ------------------ |
