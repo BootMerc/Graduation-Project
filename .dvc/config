@@ -1,0 +1,8 @@
+# Default remote storage (local)
+['remote "myremote"']
+    url = ./dvc_storage
+
+# Set default remote
+[core]
+    remote = myremote
+    autostage = true
