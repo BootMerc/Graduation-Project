@@ -22,7 +22,6 @@ class PredictionInput(BaseModel):
     Sales_Lag_14: float = Field(..., gt=0, description="Sales lag 14 days")
     Sales_Lag_30: float = Field(..., gt=0, description="Sales lag 30 days")
     
-    Customers_Lag_1: float = Field(..., gt=0, description="Customers lag 1 day")
     Customers_Lag_7: float = Field(..., gt=0, description="Customers lag 7 days")
     
     # Rolling features
