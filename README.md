@@ -14,24 +14,16 @@
 
 | Name | Role | Responsibilities | Contact |
 |------|------|-----------------|---------|
-<<<<<<< HEAD
 | **[Ziad Mohamed shaker]** | Team Lead / Data Scientist | Project coordination, XGBoost/RF model development,EDA, feature engineering, visualization |
 | **[Ahmed Behdal]** | -------- |------------------|
 | **[mahmoud ismail]** | -------- | ------------------ |
 | **[Anas Abdul Monem reyad]** | -------- | ------------------ |
-=======
-| **[Member 1 Name]** | Team Lead / Data Scientist | Project coordination, XGBoost/RF model development | [Email/GitHub] |
-| **[Member 2 Name]** | ML Engineer | LSTM neural networks, hyperparameter optimization | [Email/GitHub] |
-| **[Member 3 Name]** | Data Analyst | EDA, feature engineering, visualization | [Email/GitHub] |
-| **[Member 4 Name]** | MLOps Engineer | Model deployment, monitoring, documentation | [Email/GitHub] |
->>>>>>> c8f0f01 (added md)
-
 ---
 
 ## 📅 Project Timeline
 
 ### **Phase 1: Data Exploration & Analysis** ✅ COMPLETED
-**Duration:** October 25 - November 7, 2025 (2 weeks)
+**Duration:** October 25 - October 31, 2025 (1 weeks)
 - ✅ Dataset acquisition from Kaggle (1M+ records, 1,115 stores)
 - ✅ Comprehensive exploratory data analysis (EDA)
 - ✅ Data cleaning and preprocessing
@@ -41,7 +33,7 @@
 - ✅ Interactive visualization dashboards
 
 ### **Phase 2: Model Development & Optimization** ✅ COMPLETED
-**Duration:** November 8 - November 14, 2025 (1 week)
+**Duration:** November 1 - November 14, 2025 (2 week)
 - ✅ Traditional time series models (ARIMA, Prophet)
 - ✅ Machine learning models (XGBoost, Random Forest)
 - ✅ Deep learning (LSTM neural networks)
@@ -49,19 +41,19 @@
 - ✅ Comprehensive model evaluation and comparison
 - ✅ Ensemble model development
 
-### **Phase 3: Deployment & Monitoring** 🔄 IN PROGRESS
-**Duration:** November 15 - November 21, 2025 (1 week)
-- 🔄 MLflow integration for experiment tracking
-- 🔄 Streamlit web application development
-- 🔄 Model monitoring and performance tracking
-- ⏳ Automated retraining pipelines
+### **Phase 3: Deployment & Monitoring** ✅ COMPLETED
+**Duration:** November 15 - November 24, 2025 (1.5 week)
+- ✅ MLflow integration for experiment tracking
+- ✅ Streamlit web application development
+- ✅ Model monitoring and performance tracking
+- ✅ Automated retraining pipelines
 
-### **Phase 4: Documentation & Presentation** ⏳ UPCOMING
-**Duration:** November 22 - November 30, 2025 (9 days)
-- ⏳ Final report and technical documentation
-- ⏳ Presentation preparation
-- ⏳ Code cleanup and optimization
-- ⏳ Knowledge transfer materials
+### **Phase 4: Documentation & Presentation** 🔄 IN PROGRESS
+**Duration:** November 25 - November 27, 2025 (2 days)
+- 🔄 Final report and technical documentation
+- 🔄 Presentation preparation
+- 🔄 Code cleanup and optimization
+- 🔄 Knowledge transfer materials
 
 ---
 
@@ -95,13 +87,18 @@
 
 ### Model Performance (as of November 14, 2025)
 
-| Model | RMSE | MAE | MAPE (%) | Status |
-|-------|------|-----|----------|--------|
-| **XGBoost** 🏆 | 280,137 | 206,166 | **10.08** | ✅ Best |
-| Random Forest | 384,836 | 278,384 | 4.21 | ✅ Good |
-| Facebook Prophet | 2,006,785 | 1,606,604 | 132.89 | ⚠️ Needs tuning |
-| Auto-ARIMA | 3,315,958 | 2,551,951 | 420.03 | ⚠️ Needs tuning |
-| LSTM | 5,195,737 | 3,790,657 | 497.25 | ⚠️ Needs tuning |
+### Model Performance (as of November 15, 2025)
+
+| Model          | RMSE        | MAE         | MAPE (%) | R^2     | Status                  |
+| -------------- | ----------- | ----------- | -------- | ------- | ----------------------- |
+| **XGBoost** 🏆 | 147,015.0   | 72,390.0    | **1.65** | 0.9979  | ✅ Best                  |
+| Random Forest  | 169,056.0   | 72,199.0    | 1.24     | 0.9972  | ✅ Good                  |
+| Ensemble       | 692,137.0   | 554,352.0   | 61.33    | 0.9534  | ⚠️ Not efficient enough |
+| LSTM           | 1,869,275.0 | 1,108,014.0 | 175.08   | 0.6514  | ⚠️ Not usable           |
+| Prophet        | 1,925,076.0 | 1,519,932.0 | 110.25   | 0.6303  | ⚠️ Not usable           |
+
+
+
 
 ### 📊 Forecasting Model Comparison
 <p align="center">
@@ -109,7 +106,7 @@
 </p>
 
 **Key Achievements:**
-- ✅ **XGBoost achieved target MAPE of 10.08%** - meeting business requirements
+- ✅ **XGBoost achieved target MAPE of 1.65%** - meeting business requirements
 - ✅ Successfully implemented Bayesian hyperparameter optimization
 - ✅ Created 40+ engineered features for improved model performance
 - ✅ Cleaned dataset with outlier removal (improved stability)
@@ -155,66 +152,6 @@
 - **Docker** - Containerization
 - **Git & GitHub** - Version control
 - **Jupyter Notebook** - Interactive development
-
----
-
-## 📁 Project Structure
-
-```
-rossmann-sales-forecasting/
-│
-├── data/
-│   ├── raw/                    # Original Kaggle datasets
-│   ├── processed/              # Cleaned and preprocessed data
-│   └── features/               # Feature-engineered datasets
-│
-├── notebooks/
-│   ├── 01_eda_analysis.ipynb           # Exploratory data analysis
-│   ├── 02_preprocessing.ipynb          # Data cleaning
-│   ├── 03_feature_engineering.ipynb    # Feature creation
-│   ├── 04_model_development.ipynb      # Model training
-│   └── 05_model_evaluation.ipynb       # Performance analysis
-│
-├── src/
-│   ├── data/
-│   │   ├── preprocessing.py    # Data cleaning functions
-│   │   └── features.py         # Feature engineering
-│   ├── models/
-│   │   ├── arima.py           # ARIMA implementation
-│   │   ├── prophet.py         # Prophet models
-│   │   ├── xgboost_model.py   # XGBoost implementation
-│   │   ├── rf_model.py        # Random Forest
-│   │   └── lstm_model.py      # LSTM neural network
-│   ├── evaluation/
-│   │   └── metrics.py         # Evaluation functions
-│   └── utils/
-│       └── helpers.py         # Utility functions
-│
-├── models/
-│   ├── trained/               # Saved model artifacts
-│   └── experiments/           # MLflow experiment logs
-│
-├── reports/
-│   ├── figures/               # Generated plots and charts
-│   └── performance_reports/   # Model evaluation reports
-│
-├── deployment/
-│   ├── streamlit_app.py      # Web application
-│   ├── Dockerfile            # Container configuration
-│   └── requirements.txt      # Production dependencies
-│
-├── tests/
-│   └── test_models.py        # Unit tests
-│
-├── docs/
-│   ├── proposal.pdf          # Project proposal
-│   ├── technical_report.pdf  # Final technical documentation
-│   └── presentation.pptx     # Final presentation
-│
-├── README.md                 # This file
-├── requirements.txt          # Python dependencies
-└── .gitignore               # Git ignore rules
-```
 
 ---
 
@@ -365,8 +302,8 @@ For project-specific questions, please open an issue on GitHub.
 ## 🏆 Project Status
 
 **Current Phase:** Model Development & Optimization (Week 3 of 5)  
-**Completion:** ~60%  
-**Next Milestone:** MLOps Deployment (November 15-21, 2025)  
+**Completion:** ~80%  
+**Next Milestone:** MLOps Deployment (November 15-24, 2025)  
 **Final Deadline:** November 30, 2025
 
 ---
@@ -375,12 +312,6 @@ For project-specific questions, please open an issue on GitHub.
 **Version:** 1.2.0
 
 ---
-
-<div align="center">
-  
-### 🌟 Star this repository if you found it helpful! 🌟
-
-Made with ❤️ by [Your Team Name]
 
 <<<<<<< HEAD
 </div>
