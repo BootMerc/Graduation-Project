@@ -1,0 +1,22 @@
+artifact_path: file:///C:/Users/Zyad Diab/OneDrive/Desktop/Grad Project/mlruns/982596363098760435/models/m-bdadb0a69fb44880a7f5b744f06f731d/artifacts
+flavors:
+  python_function:
+    data: model.xgb
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.xgboost
+    python_version: 3.12.2
+  xgboost:
+    code: null
+    data: model.xgb
+    model_class: xgboost.sklearn.XGBRegressor
+    model_format: xgb
+    xgb_version: 3.0.0
+mlflow_version: 3.5.1
+model_id: m-bdadb0a69fb44880a7f5b744f06f731d
+model_size_bytes: 8825679
+model_uuid: m-bdadb0a69fb44880a7f5b744f06f731d
+prompts: null
+run_id: cbf8df9da1b74fe6b3bec505634e5d5d
+utc_time_created: '2025-11-27 22:35:43.807164'

@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Zyad Diab/OneDrive/Desktop/Grad Project/mlruns/982596363098760435/4ceb239e83514aa0a400ab845635cbb9/artifacts
+end_time: 1763996266272
+entry_point_name: ''
+experiment_id: '982596363098760435'
+lifecycle_stage: active
+run_id: 4ceb239e83514aa0a400ab845635cbb9
+run_name: Rossmann-XGBoost-v1-MLOps
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763996261401
+status: 4
+tags: []
+user_id: Zyad Diab

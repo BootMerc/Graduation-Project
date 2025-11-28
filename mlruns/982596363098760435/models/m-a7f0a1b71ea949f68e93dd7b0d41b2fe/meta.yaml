@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/Zyad Diab/OneDrive/Desktop/Grad Project/mlruns/982596363098760435/models/m-a7f0a1b71ea949f68e93dd7b0d41b2fe/artifacts
+creation_timestamp: 1764017347772
+experiment_id: '982596363098760435'
+last_updated_timestamp: 1764017354764
+model_id: m-a7f0a1b71ea949f68e93dd7b0d41b2fe
+model_type: null
+name: xgboost_model
+source_run_id: 51aefc20b905473193c2ceaa4a6df7bd
+status: 2
+status_message: null
