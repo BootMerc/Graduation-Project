@@ -207,7 +207,7 @@ elif page == "🔮 Make Predictions":
                 'Type': ['Weekday', 'Weekday', 'Weekday', 'Weekday', 'Weekday', 'Weekend', 'Weekend']
             })
             st.dataframe(days_df, use_container_width=True, hide_index=True)
-            st.info("⭐ Days 5 (Saturday) and 6 (Sunday) are weekends")
+            st.info("⭐ Days 6 (Saturday) and 7 (Sunday) are weekends")
         
         with tab2:
             st.markdown("#### Month Numbers & Details")
@@ -258,112 +258,109 @@ elif page == "🔮 Make Predictions":
     
     st.markdown("---")
     
+    # PREDICTION FORM
     with st.form("prediction_form"):
         st.subheader("📝 Enter Prediction Details")
         
-        # Basic Store Information
-        st.markdown("**🏪 Store Information**")
-        col1, col2, col3, col4 = st.columns(4)
-        
-        with col1:
-            store = st.number_input("Store Number", min_value=1, max_value=1115, value=1, step=1)
-        with col2:
-            store_open = st.selectbox("Store Open?", options=[0, 1], format_func=lambda x: "Closed" if x == 0 else "Open", index=1)
-        with col3:
-            store_type = st.selectbox("Store Type", options=[0, 1, 2, 3], format_func=lambda x: ['a', 'b', 'c', 'd'][x], index=0)
-        with col4:
-            assortment = st.selectbox("Assortment", options=[0, 1, 2], format_func=lambda x: ['a', 'b', 'c'][x], index=0)
-        
-        st.markdown("---")
-        
         # Date & Time Features
         st.markdown("**📅 Date & Time Features**")
-        col1, col2, col3, col4 = st.columns(4)
+        col1, col2, col3 = st.columns(3)
         
         with col1:
             day_of_week = st.selectbox("Day of Week", 
-                options=list(range(7)), 
-                format_func=lambda x: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'][x])
+                options=list(range(1, 8)),
+                format_func=lambda x: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'][x-1])
         with col2:
-            month = st.slider("Month", 1, 12, 4)
+            quarter = st.selectbox("Quarter", [1, 2, 3, 4], index=0)
         with col3:
-            quarter = st.selectbox("Quarter", [1, 2, 3, 4], index=1)
-        with col4:
-            week = st.slider("Week of Year", 1, 52, 15)
+            is_weekend = st.checkbox("Is Weekend?", value=(day_of_week >= 6))
         
         st.markdown("---")
         
-        # Promotional Features
-        st.markdown("**🎯 Promotional Features**")
-        col1, col2, col3 = st.columns(3)
+        # Promotional & Holiday Features
+        st.markdown("**🎯 Promotional & Holiday Features**")
+        col1, col2 = st.columns(2)
         
         with col1:
             promo = st.checkbox("Promotion Active?", value=False)
         with col2:
-            school_holiday = st.checkbox("School Holiday?", value=True)
+            state_holiday = st.checkbox("State Holiday?", value=False)
+        
+        st.markdown("---")
+        
+        # Customer Data
+        st.markdown("**👥 Customer Data**")
+        col1, col2, col3 = st.columns(3)
+        
+        with col1:
+            customers = st.number_input("Current Customers", min_value=1, value=600, step=10)
+        with col2:
+            customers_lag_7 = st.number_input("Customers (Lag-7)", min_value=1, value=600, step=10)
         with col3:
-            competition_distance = st.number_input("Competition Distance (m)", value=1000.0, step=100.0)
+            customers_lag_14 = st.number_input("Customers (Lag-14)", min_value=1, value=600, step=10)
         
         st.markdown("---")
         
         # Historical Sales Data
-        st.markdown("**📊 Historical Sales & Customer Data**")
-        col1, col2, col3 = st.columns(3)
+        st.markdown("**📊 Historical Sales Data**")
+        col1, col2 = st.columns(2)
         
         with col1:
-            sales_lag_1 = st.number_input("Sales (Lag-1 day)", value=5785, step=100)
-            sales_lag_7 = st.number_input("Sales (Lag-7 days)", value=10061, step=100)
-            sales_lag_14 = st.number_input("Sales (Lag-14 days)", value=9860, step=100)
-            sales_lag_30 = st.number_input("Sales (Lag-30 days)", value=9500, step=100)
+            sales_lag_1 = st.number_input("Sales (Lag-1 day)", min_value=1.0, value=5000.0, step=100.0)
+        with col2:
+            sales_lag_30 = st.number_input("Sales (Lag-30 days)", min_value=1.0, value=5000.0, step=100.0)
+        
+        st.markdown("---")
+        
+        # Rolling Statistics
+        st.markdown("**📈 Rolling Statistics**")
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("*Rolling Means*")
+            sales_rolling_mean_7 = st.number_input("Sales Rolling Mean (7d)", min_value=1.0, value=5000.0, step=100.0)
+            sales_rolling_mean_14 = st.number_input("Sales Rolling Mean (14d)", min_value=1.0, value=5000.0, step=100.0)
         
         with col2:
-            customers_lag_1 = st.number_input("Customers (Lag-1)", value=652, step=10)
-            customers_lag_7 = st.number_input("Customers (Lag-7)", value=665, step=10)
+            st.markdown("*Rolling Standard Deviations*")
+            sales_rolling_std_7 = st.number_input("Sales Rolling Std (7d)", min_value=0.0, value=100.0, step=10.0)
+            sales_rolling_std_14 = st.number_input("Sales Rolling Std (14d)", min_value=0.0, value=100.0, step=10.0)
         
-        with col3:
-            sales_rolling_mean_7 = st.number_input("Sales Rolling Mean (7d)", value=10061, step=100)
-            sales_rolling_mean_14 = st.number_input("Sales Rolling Mean (14d)", value=9960, step=100)
-            sales_rolling_std_7 = st.number_input("Sales Rolling Std (7d)", value=1000, step=50)
-            sales_rolling_std_14 = st.number_input("Sales Rolling Std (14d)", value=1100, step=50)
+        st.markdown("---")
+        
+        # Derived Metric
+        st.markdown("**💰 Derived Metrics**")
+        sales_per_customer = st.number_input("Sales Per Customer", min_value=0.01, value=8.0, step=0.5)
+        
+        st.info(f"💡 Auto-calculated: €{sales_lag_1 / customers:.2f} per customer based on Lag-1 sales and current customers")
         
         submit_button = st.form_submit_button("🚀 Generate Prediction", use_container_width=True)
         
         if submit_button:
             st.info("📡 Sending request to prediction API...")
             
-            # Calculate sales per customer
-            sales_per_customer = sales_lag_1 / customers_lag_1 if customers_lag_1 > 0 else 0
-            
             try:
-                # Create payload with PascalCase keys to match API requirements
+                # Create payload matching the new feature set
                 payload = {
                     "DayOfWeek": day_of_week,
-                    "Month": month,
-                    "Quarter": quarter,
-                    "Week": week,
-                    "IsWeekend": 1 if day_of_week >= 5 else 0,
+                    "Customers": customers,
                     "Promo": 1 if promo else 0,
-                    "SchoolHoliday": 1 if school_holiday else 0,
+                    "StateHoliday": 1 if state_holiday else 0,
+                    "SalesPerCustomer": sales_per_customer,
+                    "IsWeekend": 1 if is_weekend or day_of_week >= 6 else 0,
+                    "Quarter": quarter,
                     "Sales_Lag_1": sales_lag_1,
-                    "Sales_Lag_7": sales_lag_7,
-                    "Sales_Lag_14": sales_lag_14,
                     "Sales_Lag_30": sales_lag_30,
-                    "Customers_Lag_1": customers_lag_1,
                     "Customers_Lag_7": customers_lag_7,
+                    "Customers_Lag_14": customers_lag_14,
                     "Sales_Rolling_Mean_7": sales_rolling_mean_7,
                     "Sales_Rolling_Mean_14": sales_rolling_mean_14,
                     "Sales_Rolling_Std_7": sales_rolling_std_7,
-                    "Sales_Rolling_Std_14": sales_rolling_std_14,
-                    "SalesPerCustomer": sales_per_customer,
-                    "Store": store,
-                    "Open": store_open,
-                    "StoreType": store_type,
-                    "Assortment": assortment,
-                    "CompetitionDistance": competition_distance
+                    "Sales_Rolling_Std_14": sales_rolling_std_14
                 }
                 
                 response = requests.post(f"{api_url}/predict", json=payload, timeout=5)
-                response.raise_for_status()  # Raise error for bad status codes
+                response.raise_for_status()
                 result = response.json()
                 
                 # Debug: Show raw response
@@ -372,7 +369,6 @@ elif page == "🔮 Make Predictions":
                 
                 # Handle different response formats
                 if isinstance(result, dict):
-                    # Try different possible keys for the prediction value
                     prediction_value = (
                         result.get('prediction') or 
                         result.get('predicted_sales') or 
@@ -407,7 +403,6 @@ elif page == "🔮 Make Predictions":
                         Received keys: {list(result.keys())}
                         """)
                 elif isinstance(result, (int, float)):
-                    # If API returns just a number
                     st.success("✅ Prediction Generated!")
                     col1, col2, col3 = st.columns(3)
                     with col1:
@@ -434,7 +429,7 @@ elif page == "🔮 Make Predictions":
                 
                 # Show demo prediction
                 st.info("📊 **Demo Mode** - Showing mock prediction:")
-                mock_prediction = sales_lag_1 * (1.1 if promo else 1.0) * (0.9 if day_of_week >= 5 else 1.0)
+                mock_prediction = sales_lag_1 * (1.1 if promo else 1.0) * (0.9 if is_weekend else 1.0)
                 
                 col1, col2, col3 = st.columns(3)
                 with col1:
@@ -508,32 +503,22 @@ elif page == "📈 Model Performance":
 # ============================================================================
 
 elif page == "🏥 Health Check":
-    st.header("🏥 System Health & Monitoring")
+    st.header("🏥 System Health Check")
     
-    col1, col2, col3, col4 = st.columns(4)
+    st.subheader("API Health Status")
     
-    with col1:
-        st.metric("API Status", "🟢 Online")
-    with col2:
-        st.metric("Database", "🟢 Connected")
-    with col3:
-        st.metric("Model", "🟢 Loaded")
-    with col4:
-        st.metric("Uptime", "99.8%")
-    
-    st.markdown("---")
-    st.subheader("📊 System Logs (Last 24 Hours)")
-    
-    logs = [
-        {"timestamp": "2025-11-16 23:30", "level": "✅ INFO", "message": "Batch prediction completed: 1,115 stores"},
-        {"timestamp": "2025-11-16 23:00", "level": "✅ INFO", "message": "Model retraining scheduled"},
-        {"timestamp": "2025-11-16 22:30", "level": "⚠️ WARNING", "message": "MAPE increased to 2.1%"},
-        {"timestamp": "2025-11-16 21:45", "level": "✅ INFO", "message": "500 predictions served"},
-        {"timestamp": "2025-11-16 20:00", "level": "✅ INFO", "message": "Data validation passed"},
-    ]
-    
-    logs_df = pd.DataFrame(logs)
-    st.dataframe(logs_df, use_container_width=True)
+    try:
+        response = requests.get(f"{api_url}/health", timeout=3)
+        if response.status_code == 200:
+            st.success("✅ API is healthy and responding")
+            health_data = response.json()
+            st.json(health_data)
+        else:
+            st.error(f"❌ API returned status code: {response.status_code}")
+    except requests.exceptions.ConnectionError:
+        st.error("❌ Cannot connect to API - ensure it's running")
+    except Exception as e:
+        st.error(f"❌ Error: {str(e)}")
 
 # ============================================================================
 # PAGE 5: DOCUMENTATION
@@ -562,24 +547,21 @@ elif page == "📚 Documentation":
 import requests
 
 payload = {
-    "day_of_week": 3,
-    "month": 11,
-    "quarter": 4,
-    "week": 45,
-    "is_weekend": 0,
-    "promo": 1,
-    "school_holiday": 0,
-    "sales_lag_1": 50000,
-    "sales_lag_7": 48000,
-    "sales_lag_14": 47000,
-    "sales_lag_21": 49000,
-    "customers_lag_1": 800,
-    "customers_lag_7": 820,
-    "sales_rolling_mean_7": 49000,
-    "sales_rolling_mean_14": 48500,
-    "sales_rolling_std_7": 1000,
-    "sales_rolling_std_14": 1200,
-    "sales_per_customer": 62.5
+    "DayOfWeek": 3,
+    "Customers": 600,
+    "Promo": 1,
+    "StateHoliday": 0,
+    "SalesPerCustomer": 8.5,
+    "IsWeekend": 0,
+    "Quarter": 4,
+    "Sales_Lag_1": 5000.0,
+    "Sales_Lag_30": 5000.0,
+    "Customers_Lag_7": 600.0,
+    "Customers_Lag_14": 600.0,
+    "Sales_Rolling_Mean_7": 5000.0,
+    "Sales_Rolling_Mean_14": 5000.0,
+    "Sales_Rolling_Std_7": 100.0,
+    "Sales_Rolling_Std_14": 100.0
 }
 
 response = requests.post("http://localhost:8000/predict", json=payload)
