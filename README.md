@@ -279,16 +279,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 📧 Contact
-
-**Project Repository:** [https://github.com/your-team/rossmann-forecasting](https://github.com/your-team/rossmann-forecasting)
-
-**Team Email:** [team-email@example.com](mailto:team-email@example.com)
-
-For project-specific questions, please open an issue on GitHub.
-
----
-
 ## 🏆 Project Status
 
 **Current Phase:** Model Development & Optimization (Week 3 of 5)  
